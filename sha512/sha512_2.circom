@@ -30,11 +30,11 @@ template Sha512_2() {
     var i;
     var k;
 
-    component bits2num = Bits2Num(216);
+    component bits2num = Bits2Num(440);
     component num2bits[2];
 
-    num2bits[0] = Num2Bits(216);
-    num2bits[1] = Num2Bits(216);
+    num2bits[0] = Num2Bits(440);
+    num2bits[1] = Num2Bits(440);
 
     num2bits[0].in <== a;
     num2bits[1].in <== b;
@@ -52,39 +52,39 @@ template Sha512_2() {
     component hh0 = H(7);
 
     for (k=0; k<64; k++ ) {
-        sha512compression.hin[0*32+k] <== ha0.out[k];
-        sha512compression.hin[1*32+k] <== hb0.out[k];
-        sha512compression.hin[2*32+k] <== hc0.out[k];
-        sha512compression.hin[3*32+k] <== hd0.out[k];
-        sha512compression.hin[4*32+k] <== he0.out[k];
-        sha512compression.hin[5*32+k] <== hf0.out[k];
-        sha512compression.hin[6*32+k] <== hg0.out[k];
-        sha512compression.hin[7*32+k] <== hh0.out[k];
+        sha512compression.hin[0*64+k] <== ha0.out[k];
+        sha512compression.hin[1*64+k] <== hb0.out[k];
+        sha512compression.hin[2*64+k] <== hc0.out[k];
+        sha512compression.hin[3*64+k] <== hd0.out[k];
+        sha512compression.hin[4*64+k] <== he0.out[k];
+        sha512compression.hin[5*64+k] <== hf0.out[k];
+        sha512compression.hin[6*64+k] <== hg0.out[k];
+        sha512compression.hin[7*64+k] <== hh0.out[k];
     }
 
-    for (i=0; i<216; i++) {
-        sha256compression.inp[i] <== num2bits[0].out[215-i];
-        sha256compression.inp[i+216] <== num2bits[1].out[215-i];
+    for (i=0; i<440; i++) {
+        sha512compression.inp[i] <== num2bits[0].out[439-i];
+        sha512compression.inp[i+440] <== num2bits[1].out[439-i];
     }
 
-    sha256compression.inp[432] <== 1;
+    sha512compression.inp[880] <== 1;
 
-    for (i=433; i<503; i++) {
+    for (i=881; i<1015; i++) {
         sha256compression.inp[i] <== 0;
     }
 
-    sha256compression.inp[503] <== 1;
-    sha256compression.inp[504] <== 1;
-    sha256compression.inp[505] <== 0;
-    sha256compression.inp[506] <== 1;
-    sha256compression.inp[507] <== 1;
-    sha256compression.inp[508] <== 0;
-    sha256compression.inp[509] <== 0;
-    sha256compression.inp[510] <== 0;
-    sha256compression.inp[511] <== 0;
+    sha512compression.inp[1015] <== 1;
+    sha512compression.inp[1016] <== 1;
+    sha512compression.inp[1017] <== 0;
+    sha512compression.inp[1018] <== 1;
+    sha512compression.inp[1019] <== 1;
+    sha512compression.inp[1020] <== 0;
+    sha512compression.inp[1021] <== 0;
+    sha512compression.inp[1022] <== 0;
+    sha512compression.inp[1023] <== 0;
 
-    for (i=0; i<216; i++) {
-        bits2num.in[i] <== sha256compression.out[255-i];
+    for (i=0; i<440; i++) {
+        bits2num.in[i] <== sha512compression.out[511-i];
     }
 
     out <== bits2num.out;
