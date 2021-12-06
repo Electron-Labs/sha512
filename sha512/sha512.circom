@@ -79,4 +79,3 @@ template Sha512(nBits) {
     }
 
 }
-component main = Sha512(512);
