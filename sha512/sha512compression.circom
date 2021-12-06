@@ -30,14 +30,14 @@ template Sha512compression() {
     signal input hin[512];
     signal input inp[1024];
     signal output out[512];
-    signal a[65][64];
-    signal b[65][64];
-    signal c[65][64];
-    signal d[65][64];
-    signal e[65][64];
-    signal f[65][64];
-    signal g[65][64];
-    signal h[65][64];
+    signal a[81][64];
+    signal b[81][64];
+    signal c[81][64];
+    signal d[81][64];
+    signal e[81][64];
+    signal f[81][64];
+    signal g[81][64];
+    signal h[81][64];
     signal w[80][64];
 
 
@@ -46,8 +46,8 @@ template Sha512compression() {
     var i;
     for (i=0; i<512; i++) out[i] <-- outCalc[i];
 
-    component sigmaPlus[48];
-    for (i=0; i<48; i++) sigmaPlus[i] = SigmaPlus();
+    component sigmaPlus[64];
+    for (i=0; i<64; i++) sigmaPlus[i] = SigmaPlus();
 
     component ct_k[80];
     for (i=0; i<80; i++) ct_k[i] = K(i);

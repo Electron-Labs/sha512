@@ -57,7 +57,7 @@ function sha512K(i) {
     return k[i];
 }
 
-function sha256compression(hin, inp) {
+function sha512compression(hin, inp) {
     var H[8];
     var a;
     var b;
