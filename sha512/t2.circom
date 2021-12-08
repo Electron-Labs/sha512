@@ -23,29 +23,29 @@ include "sigma.circom";
 include "maj.circom";
 
 template T2() {
-    signal input a[64];
-    signal input b[64];
-    signal input c[64];
-    signal output out[64];
+    signal input a[64];//32 to 64
+    signal input b[64];//32 to 64
+    signal input c[64];//32 to 64
+    signal output out[64];//32 to 64
     var k;
 
-    component bigsigma0 = BigSigma(28, 34, 39);
-    component maj = Maj_t(64);
-    for (k=0; k<64; k++) {
+    component bigsigma0 = BigSigma(28, 34, 39);//2,13,22 to 28,34,39
+    component maj = Maj_t(64);//32 to 64
+    for (k=0; k<64; k++) {//32 to 64
         bigsigma0.in[k] <== a[k];
         maj.a[k] <== a[k];
         maj.b[k] <== b[k];
         maj.c[k] <== c[k];
     }
 
-    component sum = BinSum(64, 2);
+    component sum = BinSum(64, 2);//32 to 64
 
-    for (k=0; k<64; k++) {
+    for (k=0; k<64; k++) {//32 to 64
         sum.in[0][k] <== bigsigma0.out[k];
         sum.in[1][k] <== maj.out[k];
     }
 
-    for (k=0; k<64; k++) {
+    for (k=0; k<64; k++) {//32 to 64
         out[k] <== sum.out[k];
     }
 }

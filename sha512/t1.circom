@@ -22,7 +22,7 @@ include "binsum.circom";
 include "sigma.circom";
 include "ch.circom";
 
-template T1() {
+template T1() {//32 to 64
     signal input h[64];
     signal input e[64];
     signal input f[64];
@@ -33,18 +33,18 @@ template T1() {
 
     var ki;
 
-    component ch = Ch_t(64);
-    component bigsigma1 = BigSigma(14, 18, 41);
+    component ch = Ch_t(64);//32 to 64
+    component bigsigma1 = BigSigma(14, 18, 41);//6,11,25 changed to 14,18,41
 
-    for (ki=0; ki<64; ki++) {
+    for (ki=0; ki<64; ki++) {//32 to 64
         bigsigma1.in[ki] <== e[ki];
         ch.a[ki] <== e[ki];
         ch.b[ki] <== f[ki];
         ch.c[ki] <== g[ki];
     }
 
-    component sum = BinSum(64, 5);
-    for (ki=0; ki<64; ki++) {
+    component sum = BinSum(64, 5);//32 to 64
+    for (ki=0; ki<64; ki++) {//32 to 64
         sum.in[0][ki] <== h[ki];
         sum.in[1][ki] <== bigsigma1.out[ki];
         sum.in[2][ki] <== ch.out[ki];
@@ -52,7 +52,7 @@ template T1() {
         sum.in[4][ki] <== w[ki];
     }
 
-    for (ki=0; ki<64; ki++) {
+    for (ki=0; ki<64; ki++) {//32 to 64
         out[ki] <== sum.out[ki];
     }
 }

@@ -5,7 +5,7 @@ include "sha512compression.circom";
 
 template Sha512(nBits) {
     signal input in[nBits];
-    signal output out[512];
+    signal output out[512];//256 to 512
 
     var i;
     var k;

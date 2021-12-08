@@ -23,10 +23,10 @@ include "bitify.circom";
 // Returns 1 if in (in binary) > ct
 
 template CompConstant(ct) {
-    signal input in[254];
+    signal input in[510];//254 to 510
     signal output out;
 
-    signal parts[127];
+    signal parts[255];//127 to 255
     signal sout;
 
     var clsb;
@@ -36,12 +36,12 @@ template CompConstant(ct) {
 
     var sum=0;
 
-    var b = (1 << 128) -1;
+    var b = (1 << 256) -1; //128 to 256
     var a = 1;
     var e = 1;
     var i;
 
-    for (i=0;i<127; i++) {
+    for (i=0;i<255; i++) {//127 to 255
         clsb = (ct >> (i*2)) & 1;
         cmsb = (ct >> (i*2+1)) & 1;
         slsb = in[i*2];
@@ -66,9 +66,9 @@ template CompConstant(ct) {
 
     sout <== sum;
 
-    component num2bits = Num2Bits(135);
+    component num2bits = Num2Bits(263);//135 to 263
 
     num2bits.in <== sout;
 
-    out <== num2bits.out[127];
+    out <== num2bits.out[255];//127 to 255
 }

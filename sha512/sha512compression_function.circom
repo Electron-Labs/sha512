@@ -4,10 +4,10 @@
 pragma circom 2.0.0;
 
 function rrot(x, n) {
-    return ((x >> n) | (x << (64-n))) & 0xFFFFFFFF;
+    return ((x >> n) | (x << (64-n))) & 0xFFFFFFFF;//32 to 64
 }
 
-function bsigma0(x) {
+function bsigma0(x) {//2,13,22 to 28,34,39
     return rrot(x,28) ^ rrot(x,34) ^ rrot(x,39);
 }
 

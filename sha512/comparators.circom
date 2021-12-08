@@ -87,7 +87,7 @@ template LessThan(n) {
 */
 
 template LessThan(n) {
-    assert(n <= 252);
+    assert(n <= 508);//252 to 508
     signal input in[2];
     signal output out;
 
