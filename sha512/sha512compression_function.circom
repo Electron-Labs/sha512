@@ -11,15 +11,15 @@ function bsigma0(x) {//2,13,22 to 28,34,39
     return rrot(x,28) ^ rrot(x,34) ^ rrot(x,39);
 }
 
-function bsigma1(x) {
+function bsigma1(x) {//6,11,25 to 14,18,41
     return rrot(x,14) ^ rrot(x,18) ^ rrot(x,41);
 }
 
-function ssigma0(x) {
+function ssigma0(x) {//7,18,3 to 1,8,7
     return rrot(x,1) ^ rrot(x,8) ^ (x >> 7);
 }
 
-function ssigma1(x) {
+function ssigma1(x) {//17,19,10 to 19,61,6
     return rrot(x,19) ^ rrot(x,61) ^ (x >> 6);
 }
 
@@ -32,7 +32,7 @@ function Ch(x, y, z) {
 }
 
 function sha512K(i) {
-    var k[80] = [
+    var k[80] = [//64 to 80 and constant value changed
         0x428a2f98d728ae22, 0x7137449123ef65cd, 0xb5c0fbcfec4d3b2f, 0xe9b5dba58189dbbc,
         0x3956c25bf348b538, 0x59f111f1b605d019, 0x923f82a4af194f9b, 0xab1c5ed5da6d8118,
         0xd807aa98a3030242, 0x12835b0145706fbe, 0x243185be4ee4b28c, 0x550c7dc3d5ffb4e2,
@@ -67,10 +67,10 @@ function sha512compression(hin, inp) {
     var f;
     var g;
     var h;
-    var out[512];
+    var out[512];//256 to 512
     for (var i=0; i<8; i++) {
         H[i] = 0;
-        for (var j=0; j<64; j++) {
+        for (var j=0; j<64; j++) {//32 to 64
             H[i] += hin[i*64+j] << j;
         }
     }
@@ -82,10 +82,10 @@ function sha512compression(hin, inp) {
     f=H[5];
     g=H[6];
     h=H[7];
-    var w[80];
+    var w[80];//64 to 80
     var T1;
     var T2;
-    for (var i=0; i<80; i++) {
+    for (var i=0; i<80; i++) {//64 to 80, 32 to 64 and 31 to 63
         if (i<16) {
             w[i]=0;
             for (var j=0; j<64; j++) {
@@ -116,7 +116,7 @@ function sha512compression(hin, inp) {
     H[6] = H[6] + g;
     H[7] = H[7] + h;
     for (var i=0; i<8; i++) {
-        for (var j=0; j<64; j++) {
+        for (var j=0; j<64; j++) {//64 to 80, 32 to 64 and 31 to 63
             out[i*64+63-j] = (H[i] >> j) & 1;
         }
     }

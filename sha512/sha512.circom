@@ -13,20 +13,20 @@ template Sha512(nBits) {
     var bitsLastBlock;
 
 
-    nBlocks = ((nBits + 128)\1024)+1;
+    nBlocks = ((nBits + 128)\1024)+1;//64 to 128, 512 to 1024
 
-    signal paddedIn[nBlocks*1024];
+    signal paddedIn[nBlocks*1024];//512 to 1024
 
     for (k=0; k<nBits; k++) {
         paddedIn[k] <== in[k];
     }
     paddedIn[nBits] <== 1;
 
-    for (k=nBits+1; k<nBlocks*1024-128; k++) {
+    for (k=nBits+1; k<nBlocks*1024-128; k++) {//64 to 128, 512 to 1024
         paddedIn[k] <== 0;
     }
 
-    for (k = 0; k< 128; k++) {
+    for (k = 0; k< 128; k++) {//64 to 128, 512 to 1024
         paddedIn[nBlocks*1024 - k -1] <== (nBits >> k)&1;
     }
 
@@ -46,7 +46,7 @@ template Sha512(nBits) {
         sha512compression[i] = Sha512compression() ;
 
         if (i==0) {
-            for (k=0; k<64; k++ ) {
+            for (k=0; k<64; k++ ) {//32 to 64
                 sha512compression[i].hin[0*64+k] <== ha0.out[k];
                 sha512compression[i].hin[1*64+k] <== hb0.out[k];
                 sha512compression[i].hin[2*64+k] <== hc0.out[k];
@@ -57,7 +57,7 @@ template Sha512(nBits) {
                 sha512compression[i].hin[7*64+k] <== hh0.out[k];
             }
         } else {
-            for (k=0; k<64; k++ ) {
+            for (k=0; k<64; k++ ) {//32 to 64
                 sha512compression[i].hin[64*0+k] <== sha512compression[i-1].out[64*0+63-k];
                 sha512compression[i].hin[64*1+k] <== sha512compression[i-1].out[64*1+63-k];
                 sha512compression[i].hin[64*2+k] <== sha512compression[i-1].out[64*2+63-k];
@@ -69,12 +69,12 @@ template Sha512(nBits) {
             }
         }
 
-        for (k=0; k<1024; k++) {
+        for (k=0; k<1024; k++) {//512 to 1024
             sha512compression[i].inp[k] <== paddedIn[i*1024+k];
         }
     }
 
-    for (k=0; k<512; k++) {
+    for (k=0; k<512; k++) {//256 to 512
         out[k] <== sha512compression[nBlocks-1].out[k];
     }
 
