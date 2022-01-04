@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "chai": "^4.3.4",
-    "circom_tester": "^0.0.9",
-    "ffjavascript": "^0.2.46",
-    "mocha": "^9.1.3"
-  }
-}
