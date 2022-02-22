@@ -1,0 +1,7 @@
+node_modules
+*_cpp
+*_js
+*.r1cs
+*.sym
+.DS_Store
+.vscode
