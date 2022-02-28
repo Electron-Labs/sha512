@@ -18,7 +18,6 @@
 */
 pragma circom 2.0.0;
 
-include "../binsum.circom";
 include "sigma.circom";
 include "maj.circom";
 
