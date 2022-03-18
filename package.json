@@ -1,7 +1,7 @@
 {
-  "name": "circomlib",
-  "version": "2.0.2",
-  "description": "Basic circuits library for Circom",
+  "name": "sha512",
+  "version": "1.0.0",
+  "description": "Sha512 circuit for circom",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -10,8 +10,7 @@
     "test": "mocha --max-old-space-size=4000 --timeout 150000"
   },
   "keywords": [
-    "pedersen",
-    "hash",
+    "sha512",
     "ethereum",
     "circuit",
     "circom",
@@ -19,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/iden3/circomlib.git"
+    "url": "https://github.com/ElectronLabs/sha512.git"
   },
   "author": "0Kims",
   "license": "GPL-3.0",
