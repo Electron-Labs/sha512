@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElectronLabs/sha512.git"
+    "url": "git+https://github.com/Electron-Labs/sha512.git"
   },
   "author": "rahulghangas, BakerStreetPhantom",
   "license": "GPL-3.0",
