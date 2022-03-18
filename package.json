@@ -9,6 +9,9 @@
   "scripts": {
     "test": "mocha --max-old-space-size=4000 --timeout 150000"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "keywords": [
     "sha512",
     "ethereum",
