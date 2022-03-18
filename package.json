@@ -1,6 +1,6 @@
 {
   "name": "sha512",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sha512 circuit for circom",
   "main": "index.js",
   "directories": {
@@ -10,7 +10,7 @@
     "test": "mocha --max-old-space-size=4000 --timeout 150000"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry":"https://npm.pkg.github.com/ElectronLabs"
   },
   "keywords": [
     "sha512",
