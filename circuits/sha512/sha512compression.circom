@@ -22,7 +22,6 @@ include "constants.circom";
 include "t1.circom";
 include "t2.circom";
 include "sigmaplus.circom";
-include "sha512compression_function.circom";
 
 
 template Sha512compression() {
@@ -39,11 +38,7 @@ template Sha512compression() {
     signal h[81][64];
     signal w[80][64];
 
-
-    // var outCalc[512] = sha512compression(hin, inp);
-
     var i;
-    // for (i=0; i<512; i++) out[i] <-- outCalc[i];
 
     component sigmaPlus[64];
     for (i=0; i<64; i++) sigmaPlus[i] = SigmaPlus();
