@@ -11,7 +11,7 @@
     "clean": "rm -rf node_modules && make clean && npm i"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "sha512",
@@ -28,6 +28,7 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "circom_tester": "0.0.10",
+    "circomlib": "^2.0.3",
     "mocha": "^9.1.3"
   }
 }
