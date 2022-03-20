@@ -40,10 +40,10 @@ template Sha512compression() {
     signal w[80][64];
 
 
-    var outCalc[512] = sha512compression(hin, inp);
+    // var outCalc[512] = sha512compression(hin, inp);
 
     var i;
-    for (i=0; i<512; i++) out[i] <-- outCalc[i];
+    // for (i=0; i<512; i++) out[i] <-- outCalc[i];
 
     component sigmaPlus[64];
     for (i=0; i<64; i++) sigmaPlus[i] = SigmaPlus();
@@ -153,13 +153,13 @@ template Sha512compression() {
     }
 
     for (k=0; k<64; k++) {
-        out[63-k]     === fsum[0].out[k];
-        out[64+63-k]  === fsum[1].out[k];
-        out[128+63-k]  === fsum[2].out[k];
-        out[192+63-k]  === fsum[3].out[k];
-        out[256+63-k] === fsum[4].out[k];
-        out[320+63-k] === fsum[5].out[k];
-        out[384+63-k] === fsum[6].out[k];
-        out[448+63-k] === fsum[7].out[k];
+        out[63-k]     <== fsum[0].out[k];
+        out[64+63-k]  <== fsum[1].out[k];
+        out[128+63-k]  <== fsum[2].out[k];
+        out[192+63-k]  <== fsum[3].out[k];
+        out[256+63-k] <== fsum[4].out[k];
+        out[320+63-k] <== fsum[5].out[k];
+        out[384+63-k] <== fsum[6].out[k];
+        out[448+63-k] <== fsum[7].out[k];
     }
 }
