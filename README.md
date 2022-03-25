@@ -16,7 +16,7 @@ npm test
 
 ```circom
 include "sha512/sha512/sha512.circom";
-include "circomlib/binsum.circom"; // make sure to include binsum
+include "circomlib/binsum.circom"; // make sure to include your copy of binsum.circom from circomblib
 
 var INPUT_BITS = 1024; // number of bits of the input message
 component sha512 = Sha512(INPUT_BITS);
