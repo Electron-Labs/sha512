@@ -4,8 +4,6 @@ const crypto = require("crypto");
 
 const assert = chai.assert;
 
-const sha512 = require("./helpers/sha512");
-
 const wasm_tester = require("circom_tester").wasm;
 
 
