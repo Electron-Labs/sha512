@@ -8,10 +8,8 @@
   },
   "scripts": {
     "test": "mocha --max-old-space-size=4000 --timeout 150000",
-    "clean": "rm -rf node_modules && make clean && npm i"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "clean": "rm -rf node_modules && make clean && npm i",
+    "publish-npm": "npm publish --access public --ignore-scripts --@OWNER:registry='https://registry.npmjs.org'"
   },
   "keywords": [
     "sha512",
