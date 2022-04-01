@@ -9,7 +9,8 @@
   "scripts": {
     "test": "mocha --max-old-space-size=4000 --timeout 150000",
     "clean": "rm -rf node_modules && make clean && npm i",
-    "publish-npm": "npm publish --access public --ignore-scripts --@OWNER:registry='https://registry.npmjs.org'"
+    "publish-npm": "npm publish --access public --ignore-scripts --@OWNER:registry='https://registry.npmjs.org'",
+    "publish-github": "npm publish --access public --ignore-scripts --@electron-labs:registry='https://npm.pkg.github.com'"
   },
   "keywords": [
     "sha512",
