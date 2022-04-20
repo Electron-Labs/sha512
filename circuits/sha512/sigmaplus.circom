@@ -20,7 +20,7 @@ pragma circom 2.0.0;
 
 include "sigma.circom";
 
-template SigmaPlus() {
+template SigmaPlus512() {
     signal input in2[64];
     signal input in7[64];
     signal input in15[64];
@@ -28,8 +28,8 @@ template SigmaPlus() {
     signal output out[64];
     var k;
 
-    component sigma1 = SmallSigma(19,61,6);
-    component sigma0 = SmallSigma(1, 8, 7);
+    component sigma1 = SmallSigma512(19,61,6);
+    component sigma0 = SmallSigma512(1, 8, 7);
     for (k=0; k<64; k++) {
         sigma1.in[k] <== in2[k];
         sigma0.in[k] <== in15[k];

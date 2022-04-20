@@ -30,14 +30,14 @@ template Sha512(nBits) {
         paddedIn[nBlocks*1024 - k -1] <== (nBits >> k)&1;
     }
 
-    component ha0 = H(0);
-    component hb0 = H(1);
-    component hc0 = H(2);
-    component hd0 = H(3);
-    component he0 = H(4);
-    component hf0 = H(5);
-    component hg0 = H(6);
-    component hh0 = H(7);
+    component ha0 = H512(0);
+    component hb0 = H512(1);
+    component hc0 = H512(2);
+    component hd0 = H512(3);
+    component he0 = H512(4);
+    component hf0 = H512(5);
+    component hg0 = H512(6);
+    component hh0 = H512(7);
 
     component sha512compression[nBlocks];
 

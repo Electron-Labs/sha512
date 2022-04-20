@@ -21,7 +21,7 @@ pragma circom 2.0.0;
 include "sigma.circom";
 include "ch.circom";
 
-template T1() {
+template T1_512() {
     signal input h[64];
     signal input e[64];
     signal input f[64];
@@ -32,8 +32,8 @@ template T1() {
 
     var ki;
 
-    component ch = Ch_t(64);
-    component bigsigma1 = BigSigma(14, 18, 41);
+    component ch = Ch_t512(64);
+    component bigsigma1 = BigSigma512(14, 18, 41);
 
     for (ki=0; ki<64; ki++) {
         bigsigma1.in[ki] <== e[ki];

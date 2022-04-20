@@ -21,15 +21,15 @@ pragma circom 2.0.0;
 include "sigma.circom";
 include "maj.circom";
 
-template T2() {
+template T2_512() {
     signal input a[64];
     signal input b[64];
     signal input c[64];
     signal output out[64];
     var k;
 
-    component bigsigma0 = BigSigma(28, 34, 39);
-    component maj = Maj_t(64);
+    component bigsigma0 = BigSigma512(28, 34, 39);
+    component maj = Maj_t512(64);
     for (k=0; k<64; k++) {
         bigsigma0.in[k] <== a[k];
         maj.a[k] <== a[k];

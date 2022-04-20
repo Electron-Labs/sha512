@@ -41,16 +41,16 @@ template Sha512compression() {
     var i;
 
     component sigmaPlus[64];
-    for (i=0; i<64; i++) sigmaPlus[i] = SigmaPlus();
+    for (i=0; i<64; i++) sigmaPlus[i] = SigmaPlus512();
 
     component ct_k[80];
-    for (i=0; i<80; i++) ct_k[i] = K(i);
+    for (i=0; i<80; i++) ct_k[i] = K512(i);
 
     component t1[80];
-    for (i=0; i<80; i++) t1[i] = T1();
+    for (i=0; i<80; i++) t1[i] = T1_512();
 
     component t2[80];
-    for (i=0; i<80; i++) t2[i] = T2();
+    for (i=0; i<80; i++) t2[i] = T2_512();
 
     component suma[80];
     for (i=0; i<80; i++) suma[i] = BinSum(64, 2);

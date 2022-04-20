@@ -35,7 +35,7 @@ out = a*(b-c) + c
 */
 pragma circom 2.0.0;
 
-template Ch_t(n) {
+template Ch_t512(n) {
     signal input a[n];
     signal input b[n];
     signal input c[n];

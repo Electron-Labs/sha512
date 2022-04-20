@@ -18,7 +18,7 @@
 */
 pragma circom 2.0.0;
 
-template H(x) {
+template H512(x) {
     signal output out[64];
     var c[8] = [
         0x6a09e667f3bcc908, 0xbb67ae8584caa73b, 0x3c6ef372fe94f82b, 0xa54ff53a5f1d36f1, 
@@ -30,7 +30,7 @@ template H(x) {
     }
 }
 
-template K(x) {
+template K512(x) {
     signal output out[64];
     var c[80] = [
         0x428a2f98d728ae22, 0x7137449123ef65cd, 0xb5c0fbcfec4d3b2f, 0xe9b5dba58189dbbc, 0x3956c25bf348b538, 

@@ -31,7 +31,7 @@ out = a*( 1 - 2*b -2*c + 4*mid ) + b + c - 2 * mid
 */
 pragma circom 2.0.0;
 
-template Xor3(n) {
+template Xor3_512(n) {
     signal input a[n];
     signal input b[n];
     signal input c[n];

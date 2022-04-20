@@ -31,7 +31,7 @@ out = a*( b + c - 2*mid ) + mid
 */
 pragma circom 2.0.0;
 
-template Maj_t(n) {
+template Maj_t512(n) {
     signal input a[n];
     signal input b[n];
     signal input c[n];
