@@ -1,6 +1,6 @@
 {
   "name": "@electron-labs/sha512",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sha512 circuit for circom",
   "main": "index.js",
   "directories": {
