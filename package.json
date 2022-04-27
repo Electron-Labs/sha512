@@ -26,7 +26,7 @@
   "author": "rahulghangas, BakerStreetPhantom",
   "license": "GPL-3.0",
   "devDependencies": {
-    "circom_tester": "0.0.10",
+    "circom_tester": "0.0.11",
     "circomlib": "^2.0.3",
     "mocha": "^9.1.3"
   }
