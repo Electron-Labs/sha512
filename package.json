@@ -1,0 +1,33 @@
+{
+  "name": "@electron-labs/sha512",
+  "version": "1.0.4",
+  "description": "Sha512 circuit for circom",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --max-old-space-size=4000 --timeout 150000",
+    "clean": "rm -rf node_modules && make clean && npm i",
+    "publish-npm": "npm publish --access public --ignore-scripts --@OWNER:registry='https://registry.npmjs.org'",
+    "publish-github": "npm publish --access public --ignore-scripts --@electron-labs:registry='https://npm.pkg.github.com'"
+  },
+  "keywords": [
+    "sha512",
+    "ethereum",
+    "circuit",
+    "circom",
+    "zksnark"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Electron-Labs/sha512.git"
+  },
+  "author": "rahulghangas, BakerStreetPhantom",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "circom_tester": "0.0.14",
+    "circomlib": "^2.0.3",
+    "mocha": "^10.0.0"
+  }
+}
